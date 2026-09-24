@@ -78,8 +78,8 @@ public class CopyTextItem extends LinearLayout {
     public static final int[] HIGHLIGHT_COLOR_DEFAULT_RES = {
             R.color.password_digit,
             R.color.password_symbol,
-            R.color.password_uppercase,
-            R.color.password_lowercase,
+            R.color.password_default,
+            R.color.password_default,
     };
 
     private final int[] highlightColors = new int[HIGHLIGHT_COLOR_KEYS.length];
