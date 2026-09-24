@@ -281,8 +281,8 @@ public class SettingsFragment extends Fragment {
         }
 
         enable_credential_list_icons_switch.setChecked(settings.getBoolean(SettingValues.ENABLE_CREDENTIAL_LIST_ICONS.toString(), true));
-        settings_color_password_digits_switch.setChecked(settings.getBoolean(SettingValues.ENABLE_COLOR_PASSWORD_DIGITS.toString(), true));
-        selectedColor = settings.getInt(SettingValues.PASSWORD_DIGIT_COLOR.toString(), ContextCompat.getColor(context, R.color.password_digit));
+        settings_color_password_digits_switch.setChecked(settings.getBoolean(SettingValues.ENABLE_PASSWORD_CHARACTER_HIGHLIGHTING.toString(), true));
+        selectedColor = settings.getInt(SettingValues.HIGHLIGHT_COLOR_DIGITS.toString(), ContextCompat.getColor(context, R.color.password_digit));
         updateColorPreview(selectedColor);
         enable_offline_cache_switch.setChecked(settings.getBoolean(SettingValues.ENABLE_OFFLINE_CACHE.toString(), true));
 
@@ -409,8 +409,8 @@ public class SettingsFragment extends Fragment {
                 passwordGenerator.applyChanges();
 
                 settings.edit().putBoolean(SettingValues.ENABLE_CREDENTIAL_LIST_ICONS.toString(), enable_credential_list_icons_switch.isChecked()).commit();
-                settings.edit().putBoolean(SettingValues.ENABLE_COLOR_PASSWORD_DIGITS.toString(), settings_color_password_digits_switch.isChecked()).commit();
-                settings.edit().putInt(SettingValues.PASSWORD_DIGIT_COLOR.toString(), selectedColor).commit();
+                settings.edit().putBoolean(SettingValues.ENABLE_PASSWORD_CHARACTER_HIGHLIGHTING.toString(), settings_color_password_digits_switch.isChecked()).commit();
+                settings.edit().putInt(SettingValues.HIGHLIGHT_COLOR_DIGITS.toString(), selectedColor).commit();
                 settings.edit().putBoolean(SettingValues.ENABLE_OFFLINE_CACHE.toString(), enable_offline_cache_switch.isChecked()).commit();
 
                 settings.edit().putInt(SettingValues.CLEAR_CLIPBOARD_DELAY.toString(), Integer.parseInt(clear_clipboard_delay_value.getText().toString())).commit();
