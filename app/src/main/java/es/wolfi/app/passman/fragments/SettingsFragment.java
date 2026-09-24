@@ -113,11 +113,13 @@ public class SettingsFragment extends Fragment {
     int[] highlightColors;
     private final int[] PREDEFINED_COLORS = {
             Color.parseColor("#F44336"), // Red 500
+            Color.parseColor("#D32F2F"), // Red 700, default symbol color
             Color.parseColor("#E91E63"), // Pink 500
             Color.parseColor("#9C27B0"), // Purple 500
             Color.parseColor("#673AB7"), // Deep Purple 500
             Color.parseColor("#3F51B5"), // Indigo 500
             Color.parseColor("#2196F3"), // Blue 500
+            Color.parseColor("#1E88E5"), // Blue 600, default digit color
             Color.parseColor("#03A9F4"), // Light Blue 500
             Color.parseColor("#00BCD4"), // Cyan 500
             Color.parseColor("#009688"), // Teal 500
@@ -129,9 +131,12 @@ public class SettingsFragment extends Fragment {
             Color.parseColor("#FF9800"), // Orange 500
             Color.parseColor("#FF5722"), // Deep Orange 500
             Color.parseColor("#795548"), // Brown 500
-            Color.parseColor("#9E9E9E"), // Grey 500
             Color.parseColor("#607D8B"), // Blue Grey 500
-            Color.parseColor("#000000"), // Black
+            Color.TRANSPARENT, // default text color, i.e. no highlight
+            Color.parseColor("#616161"), // Grey 700
+            Color.parseColor("#757575"), // Grey 600
+            Color.parseColor("#9E9E9E"), // Grey 500
+            Color.parseColor("#BDBDBD"), // Grey 400
     };
     MaterialCheckBox enable_offline_cache_switch;
 
@@ -545,7 +550,7 @@ public class SettingsFragment extends Fragment {
                 int color = getItem(position);
                 GradientDrawable shape = new GradientDrawable();
                 shape.setShape(GradientDrawable.OVAL);
-                shape.setColor(color);
+                shape.setColor(color == Color.TRANSPARENT ? ContextCompat.getColor(context, R.color.password_default) : color);
                 
                 // Add a subtle border to ensure visibility on all backgrounds
                 shape.setStroke((int) (1 * context.getResources().getDisplayMetrics().density), Color.parseColor("#CCCCCC"));
